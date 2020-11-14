@@ -1,7 +1,7 @@
 RedisCache
 ==========
 
-Install with npm: `npm install rediscache`
+Install with npm: `npm install redis`
 
 Simple Node.js based Redis cache for storing large collections of data.
 
