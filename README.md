@@ -1,4 +1,4 @@
-RedisCache
+NodeJs - Redis Caching
 ==========
 
 Install with npm: `npm install redis`
