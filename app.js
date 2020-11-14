@@ -5,7 +5,7 @@ const express = require('express'),
     app = express(),
     { promisify } = require('util');
 
-app.use(responseTime());
+app.use(responseTime()); // set time in headers
 
 const client = redis.createClient();
 
@@ -21,7 +21,8 @@ app.get('/get-rockets', async (req, res, next) => {
             return;
         }
         const response = await axios.get('https://api.spacexdata.com/v3/rockets');
-        await setToCache('get-data', JSON.stringify(response.data), 'EX', 100);
+        await setToCache('get-data', JSON.stringify(response.data), 'EX', 30); //EX is expiration time in seconds..
+        console.log('Getting from API');
         res.send(response.data);
     } catch (err) {
         res.send(err.message);
